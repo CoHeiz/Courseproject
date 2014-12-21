@@ -7,15 +7,15 @@ The sensor signals (accelerometer and gyroscope) were pre-processed by applying 
 
 Raw data are obtained from UCI Machine Learning repository. In particular we used the Human Activity Recognition Using Smartphones Data Set [1].
 
-Activity Recognition (AR) aims to recognize the actions and goals of one or more agents from a series of observations on the agents' actions and the environmental conditions [3]. The collectors used a sensor based approach employing smartphones as sensing tools. Smartphones are an effective solution for AR, because they come with embedded built-in sensors such as microphones, dual cameras, accelerometers, gyroscopes, etc.
+Activity Recognition (AR) aims to recognize the actions and goals of one or more agents from a series of observations on the agents' actions and the environmental conditions. The collectors used a sensor based approach employing smartphones as sensing tools. Smartphones are an effective solution for AR, because they come with embedded built-in sensors such as microphones, dual cameras, accelerometers, gyroscopes, etc.
 
-The data set was built from experiments carried out with a group of 30 volunteers within an age bracket of 19-48 years. Each person performed six activities (walking, walking upstairs, walking downstairs, sitting, standing, laying) wearing a smartphone (Samsung Galaxy S II) on the waist. Using its embedded accelerometer and gyroscope, 3-axial linear acceleration and 3-axial angular velocity were captured at a constant rate of 50Hz. The experiments have been video-recorded to label the data manually [4].
+The data set was built from experiments carried out with a group of 30 volunteers within an age bracket of 19-48 years. Each person performed six activities (walking, walking upstairs, walking downstairs, sitting, standing, laying) wearing a smartphone (Samsung Galaxy S II) on the waist. Using its embedded accelerometer and gyroscope, 3-axial linear acceleration and 3-axial angular velocity were captured at a constant rate of 50Hz. The experiments have been video-recorded to label the data manually.
 
 The obtained data set has been randomly partitioned into two sets, where 70% of the volunteers was selected for generating the training data and 30% the test data.
 
 ##Signals
 
-The 3-axial time domain [5] signals from accelerometer and gyroscope were captured at a constant rate of 50 Hz [6]. Then they were filtered to remove noise. Similarly, the acceleration signal was then separated into body and gravity acceleration signals using another filter. Subsequently, the body linear acceleration and angular velocity were derived in time to obtain Jerk signals [7]. Also the magnitude [8] of these three-dimensional signals were calculated using the Euclidean norm [9]. Finally a Fast Fourier Transform (FFT) [10] was applied to some of these time domain signals to obtain frequency domain [11] signals.
+The 3-axial time domain signals from accelerometer and gyroscope were captured at a constant rate of 50 Hz. Then they were filtered to remove noise. Similarly, the acceleration signal was then separated into body and gravity acceleration signals using another filter. Subsequently, the body linear acceleration and angular velocity were derived in time to obtain Jerk signals. Also the magnitude of these three-dimensional signals were calculated using the Euclidean norm. Finally a Fast Fourier Transform (FFT) was applied to some of these time domain signals to obtain frequency domain signals.
 
 The signals were sampled in fixed-width sliding windows of 2.56 sec and 50% overlap (128 readings/window at 50 Hz). From each window, a vector of features was obtained by calculating variables from the time and frequency domain.
 
@@ -25,7 +25,7 @@ mean(): Mean value std(): Standard deviation mad(): Median absolute deviation ma
 
 ##Data transformation
 
-The raw data sets are processed with run_analysis.R script to create a tidy data set [12].
+The raw data sets are processed with run_analysis.R script to create a tidy data set [2].
 
 ##Merge training and test sets
 
@@ -57,10 +57,10 @@ Name Time domain Frequency domain Body Acceleration TimeDomain.BodyAcceleration.
 Body Acceleration Jerk TimeDomain.BodyAccelerationJerk.XYZ FrequencyDomain.BodyAccelerationJerk.XYZ Body Angular Speed TimeDomain.BodyAngularSpeed.XYZ FrequencyDomain.BodyAngularSpeed.XYZ Body Angular Acceleration TimeDomain.BodyAngularAcceleration.XYZ
 Body Acceleration Magnitude TimeDomain.BodyAccelerationMagnitude FrequencyDomain.BodyAccelerationMagnitude Gravity Acceleration Magnitude TimeDomain.GravityAccelerationMagnitude Body Acceleration Jerk Magnitude TimeDomain.BodyAccelerationJerkMagnitude FrequencyDomain.BodyAccelerationJerkMagnitude Body Angular Speed Magnitude TimeDomain.BodyAngularSpeedMagnitude FrequencyDomain.BodyAngularSpeedMagnitude Body Angular Acceleration Magnitude TimeDomain.BodyAngularAccelerationMagnitude FrequencyDomain.BodyAngularAccelerationMagnitude For variables derived from mean and standard deviation estimation, the previous labels are augmented with the terms "Mean" or "StandardDeviation".
 
-The data set is written to the file sensor_avg_by_act_sub.txt.
+
 
 ##References
 
-http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones. Accessed 12/22/2014 Davide Anguita, Alessandro Ghio, Luca Oneto, Xavier Parra and Jorge L. Reyes-Ortiz. Human Activity Recognition on Smartphones using a Multiclass Hardware-Friendly Support Vector Machine. International Workshop of Ambient Assisted Living (IWAAL 2012). Vitoria-Gasteiz, Spain. Dec 2012 Activity recognition. URL: http://en.wikipedia.org/wiki/Activity_recognition. Accessed 12/22/2014 Davide Anguita, Alessandro Ghio, Luca Oneto, Xavier Parra and Jorge L. Reyes-Ortiz. A Public Domain Dataset for Human Activity Recognition Using Smartphones. ESANN 2013 proceedings, European Symposium on Artificial Neural Networks, Computational Intelligence and Machine Learning. Bruges (Belgium), 24-26 April 2013 Time domain. URL: http://en.wikipedia.org/wiki/Time-domain. Accessed 12/22/2014 Hertz. URL: http://en.wikipedia.org/wiki/Hertz. Accessed 12/22/2014 Jerk. URL: http://en.wikipedia.org/wiki/Jerk_(physics). Accessed 12/22/2014 Magnitude. URL: http://en.wikipedia.org/wiki/Magnitude_(mathematics). Accessed 12/22/2014 Euclidean norm. URL: http://en.wikipedia.org/wiki/Norm_(mathematics)#Euclidean_norm. Accessed 12/22/2014 Fast Fourier transform. URL: http://en.wikipedia.org/wiki/Fast_Fourier_Transform. Accessed 12/22/2014 Frequency domain. URL: http://en.wikipedia.org/wiki/Frequency_domain. Accessed 12/22/2014
+[1]http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones. Accessed 12/22/2014 
 
-Tidy data set. Accessed 12/22/2014
+[2]Tidy data set. Accessed 12/22/2014

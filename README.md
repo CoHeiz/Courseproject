@@ -1,108 +1,30 @@
-#Codebook
-##Data Set Information/Raw data collection
+##Getting and Cleaning Data Course Project
 
-The experiments have been carried out with a group of 30 volunteers within an age bracket of 19-48 years. Each person performed six activities (WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, SITTING, STANDING, LAYING) wearing a smartphone (Samsung Galaxy S II) on the waist. Using its embedded accelerometer and gyroscope, we captured 3-axial linear acceleration and 3-axial angular velocity at a constant rate of 50Hz. The experiments have been video-recorded to label the data manually. The obtained dataset has been randomly partitioned into two sets, where 70% of the volunteers was selected for generating the training data and 30% the test data. 
+##Project Description
 
-The sensor signals (accelerometer and gyroscope) were pre-processed by applying noise filters and then sampled in fixed-width sliding windows of 2.56 sec and 50% overlap (128 readings/window). The sensor acceleration signal, which has gravitational and body motion components, was separated using a Butterworth low-pass filter into body acceleration and gravity. The gravitational force is assumed to have only low frequency components, therefore a filter with 0.3 Hz cutoff frequency was used. From each window, a vector of features was obtained by calculating variables from the time and frequency domain.
+The purpose of this project is to demonstrate your ability to collect, work with, and clean a data set. The goal is to prepare tidy data that can be used for later analysis. You will be graded by your peers on a series of yes/no questions related to the project.
 
-Raw data are obtained from UCI Machine Learning repository. In particular we used the Human Activity Recognition Using Smartphones Data Set [1]. 
+###You will be required to submit:
 
-Activity Recognition (AR) aims to recognize the actions and goals of one or more agents from a series of observations on the agents' actions and the environmental conditions [3]. The collectors used a sensor based approach employing smartphones as sensing tools. Smartphones are an effective solution for AR, because they come with embedded built-in sensors such as microphones, dual cameras, accelerometers, gyroscopes, etc.
+a tidy data set as described below
+a link to a Github repository with your script for performing the analysis, and
+a code book that describes the variables, the data, and any transformations or work that you performed to clean up the data called CodeBook.md. You should also include a README.md in the repo with your scripts. This file explains how all of the scripts work and how they are connected.
+One of the most exciting areas in all of data science right now is wearable computing. Companies like Fitbit, Nike, and Jawbone Up are racing to develop the most advanced algorithms to attract new users. The data linked to from the course website represent data collected from the accelerometers from the Samsung Galaxy S smartphone. A full description is available at the site where the data was obtained: http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones
 
-The data set was built from experiments carried out with a group of 30 volunteers within an age bracket of 19-48 years. Each person performed six activities (walking, walking upstairs, walking downstairs, sitting, standing, laying) wearing a smartphone (Samsung Galaxy S II) on the waist. Using its embedded accelerometer and gyroscope, 3-axial linear acceleration and 3-axial angular velocity were captured at a constant rate of 50Hz. The experiments have been video-recorded to label the data manually [4].
+###Here are the data for the project: https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip
 
-The obtained data set has been randomly partitioned into two sets, where 70% of the volunteers was selected for generating the training data and 30% the test data.
+###You should create one R script called run_analysis.R that does the following.
 
-##Signals
+Merges the training and the test sets to create one data set.
+Extracts only the measurements on the mean and standard deviation for each measurement.
+Uses descriptive activity names to name the activities in the data set
+Appropriately labels the data set with descriptive activity names.
+Creates a second, independent tidy data set with the average of each variable for each activity and each subject.
+What you find in this repository
 
-The 3-axial time domain [5] signals from accelerometer and gyroscope were captured at a constant rate of 50 Hz [6]. Then they were filtered to remove noise. Similarly, the acceleration signal was then separated into body and gravity acceleration signals using another filter. Subsequently, the body linear acceleration and angular velocity were derived in time to obtain Jerk signals [7]. Also the magnitude [8] of these three-dimensional signals were calculated using the Euclidean norm [9]. Finally a Fast Fourier Transform (FFT) [10] was applied to some of these time domain signals to obtain frequency domain [11] signals.
+CodeBook.md: information about raw and tidy data set and elaboration made to transform them
+LICENSE: license terms for text and code
+README.md: this file
+run_analysis.R: R script to transform raw data set in a tidy one
 
-The signals were sampled in fixed-width sliding windows of 2.56 sec and 50% overlap (128 readings/window at 50 Hz). From each window, a vector of features was obtained by calculating variables from the time and frequency domain.
 
-The set of variables that were estimated from these signals are:
-
-mean(): Mean value
-std(): Standard deviation
-mad(): Median absolute deviation
-max(): Largest value in array
-min(): Smallest value in array
-sma(): Signal magnitude area
-energy(): Energy measure. Sum of the squares divided by the number of values.
-iqr(): Interquartile range
-entropy(): Signal entropy
-arCoeff(): Autoregression coefficients with Burg order equal to 4
-correlation(): Correlation coefficient between two signals
-maxInds(): Index of the frequency component with largest magnitude
-meanFreq(): Weighted average of the frequency components to obtain a mean frequency
-skewness(): Skewness of the frequency domain signal
-kurtosis(): Kurtosis of the frequency domain signal
-bandsEnergy(): Energy of a frequency interval within the 64 bins of the FFT of each window.
-angle(): Angle between some vectors.
-No unit of measures is reported as all features were normalized and bounded within [-1,1].
-
-##Data transformation
-
-The raw data sets are processed with run_analisys.R script to create a tidy data set [12].
-
-##Merge training and test sets
-
-Test and training data (X_train.txt, X_test.txt), subject ids (subject_train.txt, subject_test.txt) and activity ids (y_train.txt, y_test.txt) are merged to obtain a single data set. Variables are labelled with the names assigned by original collectors (features.txt).
-
-#Extract mean and standard deviation variables
-
-From the merged data set is extracted and intermediate data set with only the values of estimated mean (variables with labels that contain "mean") and standard deviation (variables with labels that contain "std").
-
-##Use descriptive activity names
-
-A new column is added to intermediate data set with the activity description. Activity id column is used to look up descriptions in activity_labels.txt.
-
-#Label variables appropriately
-
-Labels given from the original collectors were changed:
-
-to obtain valid R names without parentheses, dashes and commas
-to obtain more descriptive labels
-Create a tidy data set
-
-From the intermediate data set is created a final tidy data set where numeric variables are averaged for each activity and each subject.
-
-The tidy data set contains 10299 observations with 81 variables divided in:
-
-(Activity): 1: WALKING, 2: WALKING_UPSTAIRS, 3: WALKING_DOWNSTAIRS, 4: SITTING, 5: STANDING, 6: LAYING
-
-Subject who carried out the experiment (Subject): 1, 3, 5, 6, 7, 8, 11, 14, 15, 16, 17, 19, 21, 22, 23, 25, 26, 27, 28, 29, 30
-
-79-feature vector with time and frequency domain signal variables (numeric)
-The following table relates the 17 signals to the names used as prefix for the variables names present in the data set. ".XYZ" denotes three variables, one for each axis.
-
-Name	Time domain	Frequency domain
-Body Acceleration	TimeDomain.BodyAcceleration.XYZ	FrequencyDomain.BodyAcceleration.XYZ
-Gravity Acceleration	TimeDomain.GravityAcceleration.XYZ	
-Body Acceleration Jerk	TimeDomain.BodyAccelerationJerk.XYZ	FrequencyDomain.BodyAccelerationJerk.XYZ
-Body Angular Speed	TimeDomain.BodyAngularSpeed.XYZ	FrequencyDomain.BodyAngularSpeed.XYZ
-Body Angular Acceleration	TimeDomain.BodyAngularAcceleration.XYZ	
-Body Acceleration Magnitude	TimeDomain.BodyAccelerationMagnitude	FrequencyDomain.BodyAccelerationMagnitude
-Gravity Acceleration Magnitude	TimeDomain.GravityAccelerationMagnitude	
-Body Acceleration Jerk Magnitude	TimeDomain.BodyAccelerationJerkMagnitude	FrequencyDomain.BodyAccelerationJerkMagnitude
-Body Angular Speed Magnitude	TimeDomain.BodyAngularSpeedMagnitude	FrequencyDomain.BodyAngularSpeedMagnitude
-Body Angular Acceleration Magnitude	TimeDomain.BodyAngularAccelerationMagnitude	FrequencyDomain.BodyAngularAccelerationMagnitude
-For variables derived from mean and standard deviation estimation, the previous labels are augmented with the terms "Mean" or "StandardDeviation".
-
-The data set is written to the file sensor_avg_by_act_sub.txt.
-
-##References
-
- 
-http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones. Accessed 12/22/2014
-Davide Anguita, Alessandro Ghio, Luca Oneto, Xavier Parra and Jorge L. Reyes-Ortiz. Human Activity Recognition on Smartphones using a Multiclass Hardware-Friendly Support Vector Machine. International Workshop of Ambient Assisted Living (IWAAL 2012). Vitoria-Gasteiz, Spain. Dec 2012
-Activity recognition. URL: http://en.wikipedia.org/wiki/Activity_recognition. Accessed 12/22/2014
-Davide Anguita, Alessandro Ghio, Luca Oneto, Xavier Parra and Jorge L. Reyes-Ortiz. A Public Domain Dataset for Human Activity Recognition Using Smartphones. ESANN 2013 proceedings, European Symposium on Artificial Neural Networks, Computational Intelligence and Machine Learning. Bruges (Belgium), 24-26 April 2013
-Time domain. URL: http://en.wikipedia.org/wiki/Time-domain. Accessed 12/22/2014
-Hertz. URL: http://en.wikipedia.org/wiki/Hertz. Accessed 12/22/2014
-Jerk. URL: http://en.wikipedia.org/wiki/Jerk_(physics). Accessed 12/22/2014
-Magnitude. URL: http://en.wikipedia.org/wiki/Magnitude_(mathematics). Accessed 12/22/2014
-Euclidean norm. URL: http://en.wikipedia.org/wiki/Norm_(mathematics)#Euclidean_norm. Accessed 12/22/2014
-Fast Fourier transform. URL: http://en.wikipedia.org/wiki/Fast_Fourier_Transform. Accessed 12/22/2014
-Frequency domain. URL: http://en.wikipedia.org/wiki/Frequency_domain. Accessed 12/22/2014
-
-Tidy data set. Accessed 12/22/2014

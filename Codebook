@@ -25,7 +25,7 @@ mean(): Mean value std(): Standard deviation mad(): Median absolute deviation ma
 
 Data transformation
 
-The raw data sets are processed with run_analisys.R script to create a tidy data set [12].
+The raw data sets are processed with run_analysis.R script to create a tidy data set [12].
 
 Merge training and test sets
 

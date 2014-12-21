@@ -1,6 +1,5 @@
-##Getting and Cleaning Data - Course Project
-
-#Data Set Information/Raw data collection
+#Codebook
+##Data Set Information/Raw data collection
 
 The experiments have been carried out with a group of 30 volunteers within an age bracket of 19-48 years. Each person performed six activities (WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, SITTING, STANDING, LAYING) wearing a smartphone (Samsung Galaxy S II) on the waist. Using its embedded accelerometer and gyroscope, we captured 3-axial linear acceleration and 3-axial angular velocity at a constant rate of 50Hz. The experiments have been video-recorded to label the data manually. The obtained dataset has been randomly partitioned into two sets, where 70% of the volunteers was selected for generating the training data and 30% the test data. 
 
@@ -14,7 +13,7 @@ The data set was built from experiments carried out with a group of 30 volunteer
 
 The obtained data set has been randomly partitioned into two sets, where 70% of the volunteers was selected for generating the training data and 30% the test data.
 
-#Signals
+##Signals
 
 The 3-axial time domain [5] signals from accelerometer and gyroscope were captured at a constant rate of 50 Hz [6]. Then they were filtered to remove noise. Similarly, the acceleration signal was then separated into body and gravity acceleration signals using another filter. Subsequently, the body linear acceleration and angular velocity were derived in time to obtain Jerk signals [7]. Also the magnitude [8] of these three-dimensional signals were calculated using the Euclidean norm [9]. Finally a Fast Fourier Transform (FFT) [10] was applied to some of these time domain signals to obtain frequency domain [11] signals.
 
@@ -41,11 +40,11 @@ bandsEnergy(): Energy of a frequency interval within the 64 bins of the FFT of e
 angle(): Angle between some vectors.
 No unit of measures is reported as all features were normalized and bounded within [-1,1].
 
-#Data transformation
+##Data transformation
 
 The raw data sets are processed with run_analisys.R script to create a tidy data set [12].
 
-#Merge training and test sets
+##Merge training and test sets
 
 Test and training data (X_train.txt, X_test.txt), subject ids (subject_train.txt, subject_test.txt) and activity ids (y_train.txt, y_test.txt) are merged to obtain a single data set. Variables are labelled with the names assigned by original collectors (features.txt).
 
@@ -53,7 +52,7 @@ Test and training data (X_train.txt, X_test.txt), subject ids (subject_train.txt
 
 From the merged data set is extracted and intermediate data set with only the values of estimated mean (variables with labels that contain "mean") and standard deviation (variables with labels that contain "std").
 
-#Use descriptive activity names
+##Use descriptive activity names
 
 A new column is added to intermediate data set with the activity description. Activity id column is used to look up descriptions in activity_labels.txt.
 
@@ -91,7 +90,7 @@ For variables derived from mean and standard deviation estimation, the previous 
 
 The data set is written to the file sensor_avg_by_act_sub.txt.
 
-#References
+##References
 
  
 http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones. Accessed 12/22/2014
@@ -105,4 +104,5 @@ Magnitude. URL: http://en.wikipedia.org/wiki/Magnitude_(mathematics). Accessed 1
 Euclidean norm. URL: http://en.wikipedia.org/wiki/Norm_(mathematics)#Euclidean_norm. Accessed 12/22/2014
 Fast Fourier transform. URL: http://en.wikipedia.org/wiki/Fast_Fourier_Transform. Accessed 12/22/2014
 Frequency domain. URL: http://en.wikipedia.org/wiki/Frequency_domain. Accessed 12/22/2014
+
 Tidy data set. Accessed 12/22/2014

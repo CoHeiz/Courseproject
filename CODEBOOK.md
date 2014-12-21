@@ -61,6 +61,6 @@ Body Acceleration Magnitude TimeDomain.BodyAccelerationMagnitude FrequencyDomain
 
 ##References
 
-[1]http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones. Accessed 12/22/2014 
+[1]http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones. Accessed 12/21/2014 
 
-[2]Tidy data set. Accessed 12/22/2014
+[2]Tidy data set. Accessed 12/21/2014

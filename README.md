@@ -24,7 +24,9 @@ Creates a second, independent tidy data set with the average of each variable fo
 What you find in this repository
 
 CODEBOOK.md: information about raw and tidy data set and elaboration made to transform them
+
 README.md: this file
+
 run_analysis.R: R script to transform raw data set in a tidy one
 
 

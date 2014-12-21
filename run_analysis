@@ -1,0 +1,64 @@
+#Read filed needed
+traindata<-read.table("X_train.txt", sep="", header=FALSE)
+testdata<- read.table("X_test.txt", sep="", header=FALSE)
+
+## add two extra columns containing the subject and activity,for both datasets
+traindata[,562] = read.table("Y_train.txt", sep="", header=FALSE)
+traindata[,563] = read.table("subject_train.txt", sep="", header=FALSE)
+testdata[,562] = read.table("Y_test.txt", sep="", header=FALSE)
+testdata[,563] = read.table("subject_test.txt", sep="", header=FALSE)
+
+
+##read activityLabels
+activityLabels<-read.table("activity_labels.txt", sep="", header=FALSE)
+
+# Read features and make the feature names better suited for R with some substitutions
+features<-read.table("features.txt", sep="", header=FALSE)
+features[,2] = gsub('-mean', 'Mean', features[,2])
+features[,2] = gsub('-std', 'Std', features[,2])
+features[,2] = gsub('[-()]', '', features[,2])
+
+
+
+##merge the datasets by rows
+total<-rbind(traindata, testdata)
+
+##only select all data on means and standard deviation
+selection <- grep(".*Mean.*|.*Std.*", features[,2])
+
+
+# First reduce the features table to what we want
+features <- features[selection,]
+
+# Now add the last two columns (subject and activity)
+selection <- c(selection, 562, 563)
+
+# And remove the unwanted columns from total
+total <- total[,selection]
+
+# Add the column names (features) to total
+colnames(total) <- c(features$V2, "Activity", "Subject")
+colnames(total) <- tolower(colnames(total))
+
+currentActivity = 1
+for (currentActivityLabel in activityLabels$V2) {
+  total$activity <- gsub(currentActivity, currentActivityLabel, total$activity)
+  currentActivity <- currentActivity + 1
+}
+
+total$activity <- as.factor(total$activity)
+total$subject <- as.factor(total$subject)
+
+
+# Remove the subject and activity column, since a mean of those has no use
+total<-total[, 1:7]
+
+
+
+
+
+
+
+
+
+

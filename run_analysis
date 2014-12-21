@@ -1,4 +1,6 @@
 #Read filed needed
+ 
+## IMPORTANT: I HAD SAVED NECESSARY FILES DIRECTLY IN MY WORKING DIRECTORY, SO I USE READ.TABLE 
 traindata<-read.table("X_train.txt", sep="", header=FALSE)
 testdata<- read.table("X_test.txt", sep="", header=FALSE)
 
